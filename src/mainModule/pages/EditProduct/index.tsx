@@ -9,7 +9,7 @@ import mainModuleRoutes from "../../../base/constants/routes/mainModuleRoutes";
 import {useNavigate, useParams} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {getProductTC} from "../../../base/store/Product/thunk";
-import {AppRootStateType} from "../../../starter/store/store";
+// import {AppRootStateType} from "../../../starter/store/store";
 
 const cities = [{id: 1, name: 'Алматы'},{id: 1, name: 'Актобе'}, ]
 
@@ -17,7 +17,7 @@ export const EditProduct = () => {
   const history = useNavigate();
   const dispatch = useDispatch();
 
-  const product: any = useSelector<AppRootStateType>(state => state.product)
+  const product: any = useSelector<any>(state => state.product)
 
   const [status, setStatus] = useState(['Активный', 'Архивный'])
 

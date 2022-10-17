@@ -1,15 +1,22 @@
 import {productsAPI} from "../../../api/api";
-import {createProductAction, getProductsAction} from "./actions";
+import {
+  createProductAction,
+  getProductsAction,
+  setAppIsLoadingAction
+} from "./actions";
 import {ProductsActionsType} from "./types";
 import {Dispatch} from "redux";
 import {deleteProductAction} from "./actions";
 
 export const getProductsTC = () => {
   return (dispatch: ThunkDispatch) => {
+    console.log('getProductsTC')
+    dispatch(setAppIsLoadingAction(true));
     productsAPI.getProducts()
       .then((res) => {
-        dispatch(getProductsAction(res.data))
+        // dispatch(getProductsAction(res.data))
       })
+    dispatch(setAppIsLoadingAction(false));
   }
 }
 

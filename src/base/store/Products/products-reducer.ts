@@ -5,24 +5,26 @@ import product from "../../components/Product";
 
 export type ProductsState = {
   products: {
-    data: Array<any>
+    data: Array<any>,
+    isLoading: boolean,
   }
 }
 const initialState: ProductsState = {
   products: {
     data: [],
+    isLoading: false,
   }
 }
 
 export const productsReducer = (state: ProductsState = initialState, action: ProductsActionsType): ProductsState => {
   switch (action.type) {
-    case productsTypes.BASE_GET_PRODUCTS: {
-      const { payload } = action;
+    case productsTypes.BASE_SET_PRODUCTS: {
+      const { payload } = action
       return {
         ...state,
         products: {
           ...state.products,
-          data: [...state.products.data, ...payload],
+          data: [...state.products.data, payload],
         }
 
       }
@@ -51,6 +53,20 @@ export const productsReducer = (state: ProductsState = initialState, action: Pro
         }
       }
     }
+
+    case productsTypes.BASE_APP_LOADING: {
+      const { payload } = action;
+      console.log('payload ISLOADING =', payload)
+      return {
+        ...state,
+        products: {
+          ...state.products,
+         isLoading: payload,
+        }
+      }
+    }
+
+
     default: {
       return state;
     }
