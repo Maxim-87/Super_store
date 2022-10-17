@@ -1,0 +1,45 @@
+.dragDropLoader {
+  }
+
+.drop_area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 120px;
+  height: 120px;
+  border-radius: 8px;
+  border: 2px dashed darkgray;
+}
+
+.load_image {
+  width: 120px;
+  height: 120px;
+  background-size: cover;
+  overflow: hidden;
+}
+
+//.image_file {
+//  max-width: 500px;
+//  max-height: 120px;
+//  background-size: cover;
+//  overflow: hidden;
+//}
+
+.label_input {
+  display: flex;
+  align-items: center;
+  max-width: 167px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.input_file {
+  display: none;
+}
+
+.span {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+}

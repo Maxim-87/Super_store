@@ -1,0 +1,14 @@
+.uploader {
+
+  .label_input {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .input_file {
+    display: none;
+    width: 15px;
+    height: 15px;
+  }
+}
