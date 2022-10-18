@@ -9,7 +9,9 @@ const instance = axios.create({
 })
 
 export const productsAPI = {
+
     getProduct(id: number) {
+        console.log('productsAPI Id = ', id)
         return instance.get<any>(`products/${id}`);
     },
     createProduct(payload: any) {

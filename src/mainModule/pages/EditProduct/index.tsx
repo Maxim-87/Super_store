@@ -9,6 +9,7 @@ import mainModuleRoutes from "../../../base/constants/routes/mainModuleRoutes";
 import {useNavigate, useParams} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {getProductTC} from "../../../base/store/Product/thunk";
+import {getProductAction} from "../../../base/store/Product/actions";
 // import {AppRootStateType} from "../../../starter/store/store";
 
 const cities = [{id: 1, name: 'Алматы'},{id: 1, name: 'Актобе'}, ]
@@ -32,7 +33,8 @@ export const EditProduct = () => {
 
   useEffect(() => {
     // @ts-ignore
-    dispatch(getProductTC(productId));
+    // dispatch(getProductTC(productId));
+    dispatch(getProductAction(productId));
   }, [])
 
 

@@ -5,3 +5,9 @@ export const getProductAction = (payload: any) => ({
   payload,
 });
 
+
+export const setProductAction = (payload: any) => ({
+  type: productTypes.BASE_SET_PRODUCT,
+  payload,
+});
+

@@ -1,6 +1,5 @@
 import {ProductsActionsType} from "./types";
 import * as productsTypes from "./constants";
-import product from "../../components/Product";
 
 
 export type ProductsState = {
@@ -20,7 +19,6 @@ export const productsReducer = (state: ProductsState = initialState, action: Pro
   switch (action.type) {
     case productsTypes.BASE_SET_PRODUCTS: {
       const { payload } = action
-      console.log('BASE_SET_PRODUCTS payload = ', payload)
       return {
         ...state,
         products: {
@@ -34,7 +32,6 @@ export const productsReducer = (state: ProductsState = initialState, action: Pro
 
     case productsTypes.BASE_DELETE_PRODUCT: {
       const { id } = action;
-      console.log('id =', id)
       return {
         ...state,
         products: {
@@ -46,7 +43,6 @@ export const productsReducer = (state: ProductsState = initialState, action: Pro
 
     case productsTypes.BASE_CREATE_PRODUCT: {
       const { payload } = action;
-      console.log('payload create =', payload)
       return {
         ...state,
         products: {
@@ -58,7 +54,6 @@ export const productsReducer = (state: ProductsState = initialState, action: Pro
 
     case productsTypes.BASE_APP_LOADING: {
       const { payload } = action;
-      console.log('payload ISLOADING =', payload)
       return {
         ...state,
         products: {
