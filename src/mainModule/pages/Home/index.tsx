@@ -2,8 +2,6 @@ import React, {useEffect} from 'react';
 import {Product} from "../../../base/components/Product";
 import styles from "./Home.module.scss";
 import {useDispatch, useSelector} from "react-redux";
-// import {AppRootStateType} from "../../../starter/store/store";
-import {getProductsTC} from "../../../base/store/Products/thunk";
 import hash from 'object-hash';
 import {useNavigate} from "react-router-dom";
 import mainModuleRoutes from "../../../base/constants/routes/mainModuleRoutes";
@@ -16,8 +14,6 @@ export const Home = () => {
   const products: any = useSelector<any>(state => state.products)
   const isLoading: any = useSelector<any>(state => state.products.products.isLoading)
   const history = useNavigate();
-  console.log('products HOME', products?.products?.data);
-  console.log('ISLOADING HOME = ', isLoading);
 
   useEffect(() => {
     if(products.data) {

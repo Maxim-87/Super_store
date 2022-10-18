@@ -8,9 +8,7 @@ import hash from "object-hash";
 import mainModuleRoutes from "../../../base/constants/routes/mainModuleRoutes";
 import {useNavigate, useParams} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
-import {getProductTC} from "../../../base/store/Product/thunk";
 import {getProductAction} from "../../../base/store/Product/actions";
-// import {AppRootStateType} from "../../../starter/store/store";
 
 const cities = [{id: 1, name: 'Алматы'},{id: 1, name: 'Актобе'}, ]
 
@@ -32,8 +30,6 @@ export const EditProduct = () => {
   const {productId} = useParams();
 
   useEffect(() => {
-    // @ts-ignore
-    // dispatch(getProductTC(productId));
     dispatch(getProductAction(productId));
   }, [])
 
@@ -53,30 +49,26 @@ export const EditProduct = () => {
     setIsDrop(prevState => !prevState);
   }
 
-  const deleteImage = (name: any) => {
-    setLoadFile(loadFile.filter((i: any) => i.name !== name))
-  }
+  // const deleteImage = (name: any) => {
+  //   setLoadFile(loadFile.filter((i: any) => i.name !== name))
+  // }
 
   const redirectToMainPagePageHandler = () => {
     history(mainModuleRoutes.root)
   }
 
-  // const deleteImage = (index: any) => {
-  //   // let newFiles = loadFile;
-  //   // loadFile.splice(index, 1);
-  //
-  //   console.log('name',index)
-  //   console.log('files', loadFile)
-  //   setLoadFile(loadFile.splice(index,1))
-  // }
+  const deleteImage = (index: any) => {
+    let newFiles = loadFile;
+    loadFile.splice(index, 1);
+    setLoadFile(loadFile.splice(index,1))
+  }
 
-  console.log('load file = ', loadFile)
 
   return (
     <div className={styles.product}>
       <h2> Изменить товар </h2>
       <div>
-        <input className={styles.input} type="text" value={product?.product?.data?.name}/>
+        {/*<input className={styles.input} type="text" value={product?.product?.data?.name}/>*/}
       </div>
       <TextEditor/>
       <SuperSelect options={status} className={styles.select}/>
@@ -116,9 +108,9 @@ export const EditProduct = () => {
       <div className={styles.price_block}>
         Цена
         <div className={styles.price_content}>
-          <input type="checkbox" checked={price} onChange={(e: ChangeEvent<HTMLInputElement>) => setPrice(e.currentTarget.checked)}/>
+          {/*<input type="checkbox" checked={price} onChange={(e: ChangeEvent<HTMLInputElement>) => setPrice(e.currentTarget.checked)}/>*/}
           <span> Одна цена для всех городов </span>
-          <input type="number" placeholder="Цена" value={price && product?.product?.data?.price}/>
+          {/*<input type="number" placeholder="Цена" value={price && product?.product?.data?.price}/>*/}
         </div>
       </div>
       <div className={styles.cities_block}>

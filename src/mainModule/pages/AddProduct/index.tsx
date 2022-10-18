@@ -12,9 +12,7 @@ import {number, object, string} from "yup";
 import errorMessages from "../../../base/constants/errorMessages";
 import {Input} from "../../../base/components/Input";
 import {useDispatch} from "react-redux";
-import {createProductAction} from "../../../base/store/Products/actions";
 import {createProductTC} from "../../../base/store/Products/thunk";
-import {log} from "util";
 
 const cities = [{id: 1, name: 'Алматы'}, {id: 1, name: 'Актобе'},]
 
@@ -123,16 +121,9 @@ export const AddProduct = ({}: AddProductProps) => {
   const createProductHandler = () => {
     const formData = new FormData();
     formData.append('file', loadFile)
-    console.log('FORM DATA = ', loadFile)
-    console.log('createProductHandler')
-    console.log(data);
     // @ts-ignore
     dispatch(createProductTC({...data, image: formData}))
   }
-  console.log("values.description =", values.description)
-  console.log("values.name =", values.name)
-  console.log("values.status =", values.status)
-  console.log("values.price =", values.price)
   // const deleteImage = (index: any) => {
   //   // let newFiles = loadFile;
   //   // loadFile.splice(index, 1);
@@ -141,9 +132,6 @@ export const AddProduct = ({}: AddProductProps) => {
   //   console.log('files', loadFile)
   //   setLoadFile(loadFile.splice(index,1))
   // }
-
-  console.log('load file = ', loadFile)
-
 
   return (
     <div className={styles.product}>
