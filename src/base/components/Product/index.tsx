@@ -4,6 +4,7 @@ import {useDispatch} from "react-redux";
 import {deleteProductTC} from "../../store/Products/thunk";
 import mainModuleRoutes from "../../constants/routes/mainModuleRoutes";
 import {useNavigate} from "react-router-dom";
+import {Button} from "../Button";
 
 interface ProductProps {
   className?: string,
@@ -27,19 +28,19 @@ export const Product = ({product}: ProductProps) => {
   }
   return (
     <div className={styles.product}>
-      <input type="checkbox"/>
+      <h4>{product.name}</h4>
       <div className={styles.image_wrapper}>
         <img className={styles.image} src={`${baseUrl}${product.image}`} alt=""/>
       </div>
-      <p>{product.name}</p>
-      <p>{product.status ? product.status : 'status'}</p>
-      <p>{product.price}</p>
-      <button onClick={() => deleteProductHandler(product._id)}>
-        удалить товар
-      </button>
-      <button className={styles.edit_button} onClick={() => redirectToEditProductPageHandler(product._id)}>
-        редактровать товар
-      </button>
+      <h4>{product.description}</h4>
+      <h4>{product.status ? product.status : 'status'}</h4>
+      <h4>{product.price}</h4>
+      <Button className={styles.delete_button} onClick={() => deleteProductHandler(product._id)}>
+       delete
+      </Button>
+      <Button className={styles.edit_button} onClick={() => redirectToEditProductPageHandler(product._id)}>
+        edit
+      </Button>
     </div>
 
   );

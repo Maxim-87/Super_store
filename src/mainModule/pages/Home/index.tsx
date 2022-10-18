@@ -26,8 +26,6 @@ export const Home = () => {
     history(mainModuleRoutes.create.root)
   }
 
-
-
   return (
     <div className={styles.home}>
       {isLoading ? <LoaderSpinner/> : <>
@@ -35,11 +33,11 @@ export const Home = () => {
         <h2>Товары</h2>
         <button onClick={redirectToAddProductPageHandler}> Добавить товар </button>
         <InputSearch />
-        <div className={styles.title}>
-          <h3>Название</h3>
-          <h3>Статус</h3>
-          <h3>Цена</h3>
-        </div>
+        {/*<div className={styles.title}>*/}
+        {/*  <h3>Название</h3>*/}
+        {/*  <h3>Статус</h3>*/}
+        {/*  <h3>Цена</h3>*/}
+        {/*</div>*/}
         <div className={styles.prod}>
           {products?.products?.data?.map((product: any) => (
             <Product product={product} key={hash(product)}/>

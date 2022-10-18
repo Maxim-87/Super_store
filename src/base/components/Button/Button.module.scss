@@ -1,0 +1,186 @@
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  background: $primary-blue;
+  color: $primary-light;
+  width: max-content;
+  //max-width: 450px;
+  height: max-content;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  position: relative;
+
+  &[disabled] {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  &:hover {
+    background-color: $button-hover;
+  }
+
+  &:active {
+    background-color: $button-active
+  }
+
+  &:focus {
+    border: 1px solid $button-hover;
+  }
+
+  &--fluid {
+    width: 450px;
+    height: 35px;
+  }
+
+  &--theme--black {
+    background-color: $search-color;
+
+    &:hover {
+      background-color: $primary-grey;
+    }
+
+    &:focus {
+      border: 1px solid $button-hover;
+      background-color: $search-color;
+    }
+
+    &:disabled {
+      background-color: $header-primary;
+    }
+
+    &:active {
+      background-color: $hover-color;
+    }
+  }
+
+  &--theme--transparent {
+    border: none;
+    background: none;
+    color: $grey-dark;
+
+    &:hover, &:focus, &:active {
+      background: none;
+      color: $grey-dark;
+      border: none;
+    }
+  }
+
+  &--theme--onclick {
+    justify-content: start;
+    border: none;
+    background: none;
+    border-radius: 0;
+
+    &:hover, &:focus, &:active {
+      border: none;
+      background: none;
+    }
+  }
+
+  &--size--small-68 {
+    width: 68px;
+    height: 36px;
+  }
+
+  &--size--small-88 {
+    width: 88px;
+    height: 35px;
+  }
+
+  &--size--middle-100 {
+    width: 100px;
+    height: 35px;
+  }
+
+  &--size--middle-115 {
+    width: 115px;
+    height: 36px;
+  }
+
+  &--size--middle-125 {
+    width: 125px;
+    height: 35px;
+  }
+
+  &--size--middle-137 {
+    width: 137px;
+    height: 36px;
+  }
+
+  &--size--middle-138 {
+    width: 138px;
+    height: 36px;
+  }
+
+  &--size--middle-141 {
+    width: 141px;
+    height: 36px;
+  }
+
+  &--size--middle-164 {
+    width: 164px;
+    height: 36px;
+  }
+
+  &--size--middle-165 {
+    width: 165px;
+    height: 36px;
+  }
+
+  &--size--middle-177 {
+    width: 177px;
+    height: 35px;
+  }
+
+  &--size--middle-179 {
+    width: 179px;
+    height: 35px;
+  }
+
+  &--size--middle-186 {
+    width: 186px;
+    height: 36px;
+  }
+
+  &--size--middle-188 {
+    width: 188px;
+    height: 36px;
+  }
+
+  &--size--middle-194 {
+    width: 194px;
+    height: 36px;
+  }
+
+  &--size--large-205 {
+    width: 205px;
+    height: 36px;
+  }
+
+  &--size--large-236 {
+    width: 236px;
+    height: 36px;
+  }
+
+  &--size--large-244 {
+    width: 244px;
+    height: 35px;
+  }
+
+  .loader_spinner > svg {
+    height: 30px;
+    margin-top: -15px;
+    margin-left: -15px;
+  }
+}
+
