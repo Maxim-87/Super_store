@@ -16,17 +16,14 @@ export const Home = () => {
   const products: any = useSelector<any>(state => state.products)
   const isLoading: any = useSelector<any>(state => state.products.products.isLoading)
   const history = useNavigate();
-  console.log('products', products);
+  console.log('products HOME', products?.products?.data);
   console.log('ISLOADING HOME = ', isLoading);
 
   useEffect(() => {
-    // if(products.data) {
-    //   return
-    // }
-    // @ts-ignore
-    // dispatch(getProductsTC());
+    if(products.data) {
+      return
+    }
     dispatch(getProductsAction());
-    console.log('useEffect home')
   }, [])
 
   const redirectToAddProductPageHandler = () => {

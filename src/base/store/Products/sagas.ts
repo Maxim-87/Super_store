@@ -10,9 +10,10 @@ export function* getProductsSaga() {
   try {
     console.log('getProductsSaga')
     yield put(setAppIsLoadingAction(true));
-    const {products} = yield call(productsAPI.getProducts)
-    console.log('PRODUCTS SAGA =', products)
-    yield put(setProductsAction(products))
+    // @ts-ignore
+    const resp = yield call(productsAPI.getProducts)
+    console.log('PRODUCTS SAGA =', resp.data)
+    yield put(setProductsAction(resp.data))
     yield put(setAppIsLoadingAction(false));
   }
   catch (e: any) {

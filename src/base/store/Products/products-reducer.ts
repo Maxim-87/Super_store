@@ -20,11 +20,13 @@ export const productsReducer = (state: ProductsState = initialState, action: Pro
   switch (action.type) {
     case productsTypes.BASE_SET_PRODUCTS: {
       const { payload } = action
+      console.log('BASE_SET_PRODUCTS payload = ', payload)
       return {
         ...state,
         products: {
           ...state.products,
-          data: [...state.products.data, payload],
+          // data: payload,
+          data: [...state.products.data, ...payload],
         }
 
       }
