@@ -4,7 +4,7 @@ import {useDispatch} from "react-redux";
 import {deleteProductTC} from "../../store/Products/thunk";
 import mainModuleRoutes from "../../constants/routes/mainModuleRoutes";
 import {useNavigate} from "react-router-dom";
-import {Button} from "../Button";
+import {Button} from "base/components/Button";
 
 interface ProductProps {
   className?: string,

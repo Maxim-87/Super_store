@@ -15,7 +15,10 @@ export const productsAPI = {
         return instance.get<any>(`products/${id}`);
     },
     createProduct(payload: any) {
-        return instance.post(`products`, {name: payload.name, description: payload.description, price: payload.price, status: payload.status},  {
+        return instance.post(`products`, {name: payload.name,
+            description: payload.description, price: payload.price,
+              status: payload.status},
+          {
             headers: {
                 "Content-Type": "multipart/form-data",
             },
