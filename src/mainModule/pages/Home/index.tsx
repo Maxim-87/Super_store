@@ -1,13 +1,14 @@
 import React, {useEffect} from 'react';
-import {Product} from "../../../base/components/Product";
-import styles from "./Home.module.scss";
-import {useDispatch, useSelector} from "react-redux";
+import {Product} from 'base/components/Product';
+import {useDispatch, useSelector} from 'react-redux';
 import hash from 'object-hash';
-import {useNavigate} from "react-router-dom";
-import mainModuleRoutes from "../../../base/constants/routes/mainModuleRoutes";
-import {InputSearch} from "../../../base/components/InputSearch/InputSearch";
-import LoaderSpinner from "../../../base/components/LoaderSpinner";
-import {getProductsAction} from "../../../base/store/Products/actions";
+import {useNavigate} from 'react-router-dom';
+import mainModuleRoutes from 'base/constants/routes/mainModuleRoutes';
+import {InputSearch} from 'base/components/InputSearch/InputSearch';
+import LoaderSpinner from 'base/components/LoaderSpinner';
+import {getProductsAction} from 'base/store/Products/actions';
+import styles from "./Home.module.scss";
+
 
 export const Home = () => {
   const dispatch = useDispatch();

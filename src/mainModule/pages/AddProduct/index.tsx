@@ -1,18 +1,18 @@
 import React, {ChangeEvent, useState} from 'react';
-import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
+import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import styles from './AddProduct.module.scss';
-import {TextEditor} from "../../../base/components/TextEditor";
-import SuperSelect from "../../../base/components/SuperSelect/SuperSelect";
-import {DragDropLoader} from "../../../base/containers/DragDropLoader";
-import hash from "object-hash";
-import mainModuleRoutes from "../../../base/constants/routes/mainModuleRoutes";
-import {useNavigate} from "react-router-dom";
-import {useFormik} from "formik";
-import {number, object, string} from "yup";
-import errorMessages from "../../../base/constants/errorMessages";
-import {Input} from "../../../base/components/Input";
-import {useDispatch} from "react-redux";
-import {createProductTC} from "../../../base/store/Products/thunk";
+import {TextEditor} from 'base/components/TextEditor';
+import SuperSelect from 'base/components/SuperSelect/SuperSelect';
+import {DragDropLoader} from 'base/containers/DragDropLoader';
+import hash from 'object-hash';
+import mainModuleRoutes from 'base/constants/routes/mainModuleRoutes';
+import {useNavigate} from 'react-router-dom';
+import {useFormik} from 'formik';
+import {number, object, string} from 'yup';
+import errorMessages from 'base/constants/errorMessages';
+import {Input} from 'base/components/Input';
+import {useDispatch} from 'react-redux';
+import {createProductTC} from 'base/store/Products/thunk';
 
 const cities = [{id: 1, name: 'Алматы'}, {id: 1, name: 'Актобе'},]
 
