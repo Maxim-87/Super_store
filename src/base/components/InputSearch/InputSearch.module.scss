@@ -1,3 +1,25 @@
-.input {
+//@import '../src/base/assets/styles/colors';
+
+.input_search {
+  width: 100%;
+  max-width: 450px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  //background-color: $header-border;
+  border-radius: 8px;
+
+  .img_wrap {
+    position: absolute;
+    right: 0;
+  }
+
+  .button {
+    width: 76px;
+    height: 40px;
+    //background-color: $search-color;
+    border-radius: 0 8px 8px 0;
+    border: none;
+  }
 
 }

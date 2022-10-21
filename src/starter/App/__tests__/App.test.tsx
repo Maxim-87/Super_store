@@ -1,14 +1,16 @@
 import React from 'react';
 
-// @ts-ignore
-import renderer from 'react-test-renderer';
-import App  from 'starter/App/App';
-import {render, screen} from "@testing-library/react";
+import { screen } from '@testing-library/react';
+// eslint-disable-next-line import/no-unresolved
+import { createMemoryHistory } from 'history';
 
-describe('The App component', () => {
-	it('renders without crashing', () => {
-		render(<App/>)
-		const linkElement = screen.getByText(/App/i);
-		expect(linkElement).toMatchSnapshot();
-	});
+import App from 'starter/App/App';
+
+describe('React router', () => {
+  it('renders home page', () => {
+    const history = createMemoryHistory();
+    const linkElement = screen.getByText(/App/i);
+
+    expect(linkElement).toMatchSnapshot();
+  });
 });

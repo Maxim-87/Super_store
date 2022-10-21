@@ -1,11 +1,14 @@
 .product {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   width: 800px;
   height: 100%;
   margin-bottom: 25px;
   color: #282c34;
+
+  .product_item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
   .image_wrapper {
     display: flex;
@@ -21,6 +24,5 @@
     margin-left: 20px;
     border-radius: 4px;
   }
-
 
 }

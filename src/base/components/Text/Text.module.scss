@@ -1,0 +1,274 @@
+@import '../../assets/styles/colors';
+
+.text {
+  //@extend %default-text-style;
+
+  &--type {
+    &--normal-400-12-15 {
+      font-style: normal;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 15px;
+    }
+
+    &--normal-400-14-16 {
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 16px;
+    }
+
+    &--normal-400-14-17 {
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 17px;
+    }
+
+    &--normal-400-14-18 {
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 18px;
+    }
+
+    &--normal-400-14-24 {
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 24px;
+    }
+
+    &--normal-400-16-19 {
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 19px;
+    }
+
+    &--normal-400-16-21 {
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 21px;
+    }
+
+    &--normal-400-20-26 {
+      font-style: normal;
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 26px;
+    }
+
+    &--normal-500-10-12 {
+      font-style: normal;
+      font-weight: 500;
+      font-size: 10px;
+      line-height: 12px;
+    }
+
+    &--normal-500-12-15 {
+      font-style: normal;
+      font-weight: 500;
+      font-size: 12px;
+      line-height: 15px;
+    }
+
+    &--normal-500-13-16 {
+      font-style: normal;
+      font-weight: 500;
+      font-size: 13px;
+      line-height: 16px;
+    }
+
+    &--normal-500-14-16 {
+      font-style: normal;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 16px;
+    }
+
+    &--normal-500-14-17 {
+      font-style: normal;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 17px;
+    }
+
+    &--normal-500-14-18 {
+      font-style: normal;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 18px;
+    }
+
+    &--normal-500-14-24 {
+      font-style: normal;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 24px;
+    }
+
+    &--normal-500-16-19 {
+      font-style: normal;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 19px;
+    }
+
+    &--normal-500-16-21 {
+      font-style: normal;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 21px;
+    }
+
+    &--normal-500-18-22 {
+      font-style: normal;
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 22px;
+    }
+
+    &--normal-500-20-24 {
+      font-style: normal;
+      font-weight: 500;
+      font-size: 20px;
+      line-height: 24px;
+    }
+
+    &--normal-500-24-29 {
+      font-style: normal;
+      font-weight: 500;
+      font-size: 24px;
+      line-height: 29px;
+    }
+
+    &--normal-600-12-14 {
+      font-style: normal;
+      font-weight: 600;
+      font-size: 12px;
+      line-height: 14px;
+    }
+
+    &--normal-600-12-15 {
+      font-style: normal;
+      font-weight: 600;
+      font-size: 12px;
+      line-height: 15px;
+    }
+
+    &--normal-600-16-19 {
+      font-style: normal;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 19px;
+    }
+
+    &--normal-600-16-21 {
+      font-style: normal;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 21px;
+    }
+
+    &--normal-600-18-23 {
+      font-style: normal;
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 23px;
+    }
+
+    &--normal-600-20-26 {
+      font-style: normal;
+      font-weight: 600;
+      font-size: 20px;
+      line-height: 26px;
+    }
+
+    &--normal-600-24-29 {
+      font-style: normal;
+      font-weight: 600;
+      font-size: 24px;
+      line-height: 29px;
+    }
+
+    &--normal-600-24-30 {
+      font-style: normal;
+      font-weight: 600;
+      font-size: 24px;
+      line-height: 30px;
+    }
+
+    &--normal-600-24-31 {
+      font-style: normal;
+      font-weight: 600;
+      font-size: 24px;
+      line-height: 31px;
+    }
+
+    &--normal-600-32-39 {
+      font-style: normal;
+      font-weight: 600;
+      font-size: 32px;
+      line-height: 39px;
+    }
+
+    &--normal-600-32-42 {
+      font-style: normal;
+      font-weight: 600;
+      font-size: 32px;
+      line-height: 42px;
+    }
+
+    &--normal-700-16-19 {
+      font-style: normal;
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 19px;
+    }
+
+    &--normal-700-24-29 {
+      font-style: normal;
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 29px;
+    }
+  }
+
+
+  // aligns
+  &--align {
+    &--left {
+      text-align: left;
+    }
+
+    &--center {
+      text-align: center;
+    }
+
+    &--right {
+      text-align: right;
+    }
+  }
+
+  // colors
+  &--color {
+    //@include text-colors;
+    &--grey {
+      color: $grey-text;
+    }
+    &--grey-dark {
+      color: $grey-dark;
+    }
+    &--blue {
+      color: $primary-blue;
+    }
+    &--error {
+      color: $danger;
+    }
+    &--green {
+      color: $text-green;
+    }
+  }
+}

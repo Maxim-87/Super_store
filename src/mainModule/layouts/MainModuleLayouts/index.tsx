@@ -1,20 +1,24 @@
-import React from "react";
+/* eslint-disable */
+import React from 'react';
+
 import styles from './MainModuleLayout.module.scss';
 
+import { Header } from 'mainModule/containers/Header';
+
 interface OwnProps {
-  children: JSX.Element|JSX.Element[],
+  children: JSX.Element | JSX.Element[];
 }
 
 interface MainModuleLayoutProps extends OwnProps {
-  location?: string,
+  // eslint-disable-next-line react/no-unused-prop-types
+  location?: string;
 }
 
-export function MainModuleLayout({children,}: MainModuleLayoutProps) {
+export const MainModuleLayout = ({ children }: MainModuleLayoutProps) => {
   return (
     <div className={styles.main_layout}>
-      <div className={styles.content}>
-        {children}
-      </div>
+      <Header />
+      <div className={styles.content}>{children}</div>
     </div>
-  )
-}
+  );
+};

@@ -6,7 +6,6 @@ import { useNavigate } from 'react-router-dom';
 
 import styles from './Home.module.scss';
 
-import { InputSearch } from 'base/components/InputSearch/InputSearch';
 import LoaderSpinner from 'base/components/LoaderSpinner';
 import { Product } from 'base/components/Product';
 import mainModuleRoutes from 'base/constants/routes/mainModuleRoutes';
@@ -43,12 +42,6 @@ export const Home = () => {
             {' '}
             Добавить товар{' '}
           </button>
-          <InputSearch />
-          {/* <div className={styles.title}> */}
-          {/*  <h3>Название</h3> */}
-          {/*  <h3>Статус</h3> */}
-          {/*  <h3>Цена</h3> */}
-          {/* </div> */}
           <div className={styles.prod}>
             {products?.products?.data?.map((product: any) => (
               <Product product={product} key={hash(product)} />

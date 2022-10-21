@@ -1,14 +1,16 @@
 import React from 'react';
-import './App.css';
-import {BaseRouter} from "../routes";
 
-function App() {
+import './App.css';
+import { BaseRouter } from '../routes';
+
+// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+const App = () => {
   return (
     <div className="App">
-     <BaseRouter/>
+      <BaseRouter />
       App
     </div>
   );
-}
+};
 
 export default App;

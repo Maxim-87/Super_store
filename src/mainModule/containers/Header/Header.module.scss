@@ -1,0 +1,104 @@
+//@import '../src/base/assets/styles/colors';
+
+.header {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  //background: $header-primary;
+  height: 70px;
+  width: 100%;
+  //border-bottom: 1px solid $header-border;
+  position: fixed;
+  z-index: 2;
+
+  .burger_image {
+    margin-left: 24px;
+  }
+
+  .input_block {
+    margin: 0 auto;
+  }
+
+  .setting_block {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    margin-right: 24px;
+
+    .setting_icon {
+      margin-left: 24px;
+      margin-right: 24px;
+    }
+  }
+
+  .setting_block_auth {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    margin-right: 8px;
+
+    .image_button {
+      margin-right: 12px;
+    }
+
+    .image {
+      margin: 0 24px
+    }
+    .icon {
+      margin-left: 24px;
+    }
+
+    .dropdown_block {
+      display: flex;
+      width: 32px;
+      height: 32px;
+      margin-right: 16px;
+
+      .image_user {
+        position: absolute;
+        width: 32px;
+        height: 32px;
+        right: 24px;
+      }
+      .loader_spinner {
+        position: relative;
+      }
+      .loader_spinner > svg {
+        width: 32px !important;
+        top: revert;
+        left: revert;
+        margin: revert;
+        height: revert;
+      }
+    }
+  }
+
+  .setting_block_channels {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    margin-right: 24px;
+
+    .image_button {
+      margin-right: 12px;
+    }
+
+    .image {
+      margin-left: 24px;
+      margin-right: 40px;
+    }
+    .icon {
+      margin-left: 24px;
+    }
+  }
+
+}
+
+.channel_dropdown {
+  right: -16px;
+}
+
+
+
+
+
