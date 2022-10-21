@@ -32,7 +32,6 @@
         ".ts",
         ".jsx",
         ".tsx",
-        ".json",
         "**/*.spec.js",
         "**/*.test.ts",
         "**/*.test.tsx",
