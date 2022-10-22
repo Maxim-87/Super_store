@@ -1,71 +1,104 @@
-import {ProductsActionsType} from "./types";
-import * as productsTypes from "./constants";
+import * as productsTypes from './constants';
+import { ProductsActionsType } from './types';
 
+import { RequestInfoType } from 'base/types/base/reducer';
+import { RequestInfoState } from 'base/types/base/state';
 
 export type ProductsState = {
   products: {
-    data: Array<any>,
-    isLoading: boolean,
-  }
-}
+    data: Array<any>;
+  } & RequestInfoType;
+};
 const initialState: ProductsState = {
   products: {
     data: [],
-    isLoading: false,
-  }
-}
+    ...RequestInfoState,
+  },
+};
 
-export const productsReducer = (state: ProductsState = initialState, action: ProductsActionsType): ProductsState => {
+export const productsReducer = (
+  // eslint-disable-next-line default-param-last
+  state: ProductsState = initialState,
+  action: ProductsActionsType
+): ProductsState => {
   switch (action.type) {
     case productsTypes.BASE_SET_PRODUCTS: {
-      const { payload } = action
+      const { payload } = action;
+
       return {
         ...state,
         products: {
           ...state.products,
           // data: payload,
           data: [...state.products.data, ...payload],
-        }
-
-      }
+        },
+      };
     }
 
     case productsTypes.BASE_DELETE_PRODUCT: {
       const { id } = action;
+
       return {
         ...state,
         products: {
           ...state.products,
-          data: state.products.data.filter(product => product._id !== id),
-        }
-      }
+          // eslint-disable-next-line no-underscore-dangle
+          data: state.products.data.filter((product) => product._id !== id),
+        },
+      };
     }
 
-    case productsTypes.BASE_CREATE_PRODUCT: {
+    case productsTypes.BASE_CREATE_PRODUCT_REQUEST: {
+      return {
+        ...state,
+        products: {
+          ...state.products,
+          isLoading: true,
+        },
+      };
+    }
+
+    case productsTypes.BASE_CREATE_PRODUCT_SUCCESS: {
       const { payload } = action;
+
       return {
         ...state,
         products: {
           ...state.products,
           data: [...state.products.data, payload],
-        }
-      }
+          isLoading: false,
+        },
+      };
     }
 
-    case productsTypes.BASE_APP_LOADING: {
+    case productsTypes.BASE_CREATE_PRODUCT_ERROR: {
       const { payload } = action;
+
       return {
         ...state,
         products: {
           ...state.products,
-         isLoading: payload,
-        }
-      }
+          data: [...state.products.data, payload],
+          isLoading: false,
+          error: payload.error,
+        },
+      };
     }
 
+    case productsTypes.BASE_APP_LOADING: {
+      const { payload } = action;
+
+      return {
+        ...state,
+        products: {
+          ...state.products,
+          isLoading: payload,
+        },
+      };
+    }
 
     default: {
       return state;
     }
   }
-}
+};

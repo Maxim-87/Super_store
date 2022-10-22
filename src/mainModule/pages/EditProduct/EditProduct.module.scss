@@ -1,7 +1,7 @@
 .product {
-  background-color: white;
-  margin-top: 30px;
-  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   .input {
     width: 616px;

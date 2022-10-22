@@ -19,7 +19,7 @@ export const Product = ({ product }: ProductProps) => {
   const dispatch = useDispatch();
   const history = useNavigate();
 
-  const [isAdmin, setIsAdmin] = useState<boolean>(false);
+  const [isAdmin, setIsAdmin] = useState<boolean>(true);
 
   console.log(product);
 
@@ -28,7 +28,7 @@ export const Product = ({ product }: ProductProps) => {
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
   const deleteProductHandler = (id: number) => {
     // @ts-ignore
-    // dispatch(deleteProductTC(id));
+    dispatch(deleteProductTC(id));
   };
 
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
