@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from 'react';
 
 import cx from 'classnames';
@@ -38,9 +39,9 @@ export const InputSearch = ({
 }: InputSearchProps) => (
   <div className={cx(styles.input_search, className)}>
     <div className={styles.img_wrap}>
-      <Button className={styles.button} onClick={onClick}>
-        {/* <img src={icons.searchIcon} alt="" /> */}
-      </Button>
+      {/* <Button className={styles.button} onClick={onClick}> */}
+      {/*  /!* <img src={icons.searchIcon} alt="" /> *!/ */}
+      {/* </Button> */}
     </div>
     <Input
       name={name}

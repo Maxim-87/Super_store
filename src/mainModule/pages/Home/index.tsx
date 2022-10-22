@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 
 import styles from './Home.module.scss';
 
+import { Button } from 'base/components/Button';
 import LoaderSpinner from 'base/components/LoaderSpinner';
 import { Product } from 'base/components/Product';
 import mainModuleRoutes from 'base/constants/routes/mainModuleRoutes';
@@ -36,13 +37,9 @@ export const Home = () => {
         <LoaderSpinner />
       ) : (
         <>
-          <input type="text" />
           <h2>Товары</h2>
-          <button type="button" onClick={redirectToAddProductPageHandler}>
-            {' '}
-            Добавить товар{' '}
-          </button>
-          <div className={styles.prod}>
+          <Button onClick={redirectToAddProductPageHandler}> Добавить товар </Button>
+          <div className={styles.products_items}>
             {products?.products?.data?.map((product: any) => (
               <Product product={product} key={hash(product)} />
             ))}

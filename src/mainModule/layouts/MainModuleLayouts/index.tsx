@@ -18,7 +18,9 @@ export const MainModuleLayout = ({ children }: MainModuleLayoutProps) => {
   return (
     <div className={styles.main_layout}>
       <Header />
-      <div className={styles.content}>{children}</div>
+      <div className={styles.menu_and_content}>
+        <div className={styles.content}>{children}</div>
+      </div>
     </div>
   );
 };

@@ -1,11 +1,19 @@
 .main_layout {
   display: flex;
-  justify-content: center;
-  //height: 100vh;
+  flex-direction: column;
+  min-block-size: 100vh;
+  max-inline-size: 100vw;
   background: linear-gradient(to bottom, #117d2c, #7c68a1, #5d26c9);
-}
+  height: 100%;
 
-.content {
- margin: 0 auto;
- max-width: 1200px;
+  .menu_and_content {
+    display: flex;
+
+    .content {
+      width: 100%;
+      margin-top: 70px;
+      margin-left: 240px;
+      position: relative;
+    }
+  }
 }

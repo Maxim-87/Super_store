@@ -1,14 +1,19 @@
 .home {
   position: relative;
+  align-items: center;
+  display: flex;
+  justify-content: center;flex-direction: column;
+  width: 100%;
   min-height: 400px;
   padding-top: 50px;
-  .title {
 
-  }
-
-  .prod {
-    width: 100%;
-    height: 100%;
+  .products_items {
+    display: grid;
+    grid-template-columns: min-content min-content min-content min-content;
+    grid-column-gap: 16px;
+    grid-row-gap: 15px;
+    margin-top: 156px;
+    margin-bottom: 340px;
   }
 }
 
