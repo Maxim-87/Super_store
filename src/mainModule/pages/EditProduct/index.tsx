@@ -76,9 +76,6 @@ export const EditProduct = () => {
   return (
     <div className={styles.product}>
       <h2> Изменить товар </h2>
-      <div>
-        {/* <input className={styles.input} type="text" value={product?.product?.data?.name}/> */}
-      </div>
       <TextEditor />
       <SuperSelect options={status} className={styles.select} />
       <button
@@ -128,9 +125,7 @@ export const EditProduct = () => {
       <div className={styles.price_block}>
         Цена
         <div className={styles.price_content}>
-          {/* <input type="checkbox" checked={price} onChange={(e: ChangeEvent<HTMLInputElement>) => setPrice(e.currentTarget.checked)}/> */}
           <span> Одна цена для всех городов </span>
-          {/* <input type="number" placeholder="Цена" value={price && product?.product?.data?.price}/> */}
         </div>
       </div>
       <div className={styles.cities_block}>
