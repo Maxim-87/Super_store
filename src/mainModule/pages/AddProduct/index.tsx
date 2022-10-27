@@ -134,6 +134,8 @@ export const AddProduct = ({}: AddProductProps) => {
           className={styles.input}
           name="name"
           value={values.name}
+          label={'name'}
+          placeholder={'name'}
           onChange={onChangeHandler}
           type="text"
         />
