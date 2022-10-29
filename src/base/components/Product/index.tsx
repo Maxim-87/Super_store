@@ -9,6 +9,7 @@ import styles from './Product.module.scss';
 import { Button } from 'base/components/Button';
 import { Text } from 'base/components/Text';
 import mainModuleRoutes from 'base/constants/routes/mainModuleRoutes';
+import { deleteProductAction } from 'base/store/Products/actions';
 
 interface ProductProps {
   className?: string;
@@ -27,8 +28,7 @@ export const Product = ({ product }: ProductProps) => {
 
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
   const deleteProductHandler = (id: number) => {
-    // @ts-ignore
-    dispatch(deleteProductTC(id));
+    dispatch(deleteProductAction(id));
   };
 
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
@@ -44,9 +44,9 @@ export const Product = ({ product }: ProductProps) => {
           <img className={styles.image} src={`${baseUrl}${product.image}`} alt="" />
         </div>
         <div className="item_content">
-          <h4>{product.description}</h4>
-          <h4>{product.status ? product.status : 'status'}</h4>
-          <h4>{product.price}</h4>
+          <Text>{product.description}</Text>
+          <Text>{product.status ? product.status : 'status'}</Text>
+          <Text>{product.price}</Text>
           {isAdmin ? (
             <>
               <Button

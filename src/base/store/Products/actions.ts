@@ -32,9 +32,21 @@ export const createProductErrorAction = (payload: any) => ({
   payload,
 });
 
+// ------------------------------------- DeleteProduct
+
 export const deleteProductAction = (id: number) => ({
-  type: productsTypes.BASE_DELETE_PRODUCT,
+  type: productsTypes.BASE_DELETE_PRODUCT_REQUEST,
   id,
+});
+
+export const deleteProductSuccessAction = (id: number) => ({
+  type: productsTypes.BASE_DELETE_PRODUCT_SUCCESS,
+  id,
+});
+
+export const deleteProductErrorAction = (payload: any) => ({
+  type: productsTypes.BASE_DELETE_PRODUCT_ERROR,
+  payload,
 });
 
 export const setAppIsLoadingAction = (payload: boolean) => ({

@@ -6,6 +6,8 @@ import {
   setProductsAction,
   createProductSuccessAction,
   createProductErrorAction,
+  deleteProductSuccessAction,
+  deleteProductErrorAction,
 } from './actions';
 
 export type SetProductsActionType = ReturnType<typeof setProductsAction>;
@@ -17,6 +19,8 @@ export type CreateProductSuccessActionType = ReturnType<typeof createProductSucc
 export type CreateProductErrorActionType = ReturnType<typeof createProductErrorAction>;
 
 export type DeleteProductActionType = ReturnType<typeof deleteProductAction>;
+export type DeleteProductSuccessActionType = ReturnType<typeof deleteProductSuccessAction>;
+export type DeleteProductErrorActionType = ReturnType<typeof deleteProductErrorAction>;
 
 export type SetAppIsLoadingActionType = ReturnType<typeof setAppIsLoadingAction>;
 
@@ -27,4 +31,6 @@ export type ProductsActionsType =
   | CreateProductSuccessActionType
   | CreateProductErrorActionType
   | DeleteProductActionType
+  | DeleteProductSuccessActionType
+  | DeleteProductErrorActionType
   | SetAppIsLoadingActionType;

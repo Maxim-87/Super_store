@@ -11,6 +11,7 @@ export const productsAPI = {
 
     return instance.get<any>(`products/${id}`);
   },
+
   createProduct(payload: any) {
     console.log('createProductAPI = ', payload);
 
@@ -30,9 +31,11 @@ export const productsAPI = {
       }
     );
   },
+
   deleteProduct(id: number) {
     return instance.delete<any>(`products/${id}`);
   },
+
   getProducts() {
     return instance.get<any>('products');
   },

@@ -1,6 +1,11 @@
 import { call, put, takeLeading } from 'redux-saga/effects';
 
-import { createProductSuccessAction, setAppIsLoadingAction, setProductsAction } from './actions';
+import {
+  createProductSuccessAction,
+  deleteProductSuccessAction,
+  setAppIsLoadingAction,
+  setProductsAction,
+} from './actions';
 import * as productsTypes from './constants';
 
 import { productsAPI } from 'api/api';
@@ -31,7 +36,19 @@ export function* createProductSaga({ payload }: any) {
 }
 
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+export function* deleteProductSaga({ id }: any) {
+  try {
+    console.log('payload saga = ', id);
+    yield call(productsAPI.deleteProduct, id);
+    yield put(deleteProductSuccessAction(id));
+  } catch (e: any) {
+    console.log(e);
+  }
+}
+
+// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 export function* productsWatcher() {
   yield takeLeading(productsTypes.BASE_GET_PRODUCTS, getProductsSaga);
   yield takeLeading(productsTypes.BASE_CREATE_PRODUCT_REQUEST, createProductSaga);
+  yield takeLeading(productsTypes.BASE_DELETE_PRODUCT_REQUEST, deleteProductSaga);
 }
