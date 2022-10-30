@@ -1,8 +1,7 @@
-
 .input {
   box-sizing: border-box;
   width: 100%;
-  max-width: 598px;
+  max-width: 617px;
   height: 40px;
   outline: none;
   padding: 11px 16px;
@@ -15,13 +14,18 @@
     margin-bottom: 10px;
   }
 
+  &--fluid {
+    width: 617px;
+    height: 25px;
+  }
+
   &__wrapper {
     display: flex;
     flex-direction: column;
     justify-content: end;
     box-sizing: border-box;
     height: max-content;
-    align-items: center;
+    align-items: start;
 
     .label_block {
       display: flex;

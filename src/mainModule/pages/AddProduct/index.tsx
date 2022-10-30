@@ -130,59 +130,64 @@ export const AddProduct = ({}: AddProductProps) => {
   return (
     <div className={styles.product}>
       <h2>Добавить товар</h2>
-      <Input
-        className={styles.input}
-        name="name"
-        value={values.name}
-        placeholder={'name'}
-        onChange={onChangeHandler}
-        type="text"
-      />
-      <TextEditor value={values.description} setValue={setFieldValue} />
-      <SuperSelect options={status} className={styles.select} onChangeOption={setFieldValue} />
-      <button
-        className={styles.load_image}
-        onClick={openDropOnClick}
-        disabled={loadFile.length !== 0}
-      >
-        <span>Загрузить изображение</span>
-      </button>
-      {isDrop ? (
-        <DragDropLoader
-          loadFile={loadFile}
-          setLoadFile={setLoadFile}
-          isDrop={isDrop}
-          setIsDrop={setIsDrop}
+      <div className={styles.content}>
+        <Input
+          className={styles.input}
+          name="name"
+          value={values.name}
+          placeholder={'name'}
+          onChange={onChangeHandler}
+          type="text"
+          fluid
         />
-      ) : (
-        ''
-      )}
-      {loadFile.length !== 0 && (
-        <div className={styles.images_container}>
-          {loadFile.map((file: any, index: number) => (
-            <div className={styles.image_block} key={hash(file)}>
-              <img className={styles.image} src={URL.createObjectURL(file)} alt="" />
-              <button className={styles.delete_button} onClick={() => deleteImage(file.name)}>
-                Удалить
-              </button>
-            </div>
-          ))}
-          {loadFile.length !== 3 ? (
-            <DragDropLoader
-              loadFile={loadFile}
-              setLoadFile={setLoadFile}
-              isDrop={isDrop}
-              setIsDrop={setIsDrop}
-            />
-          ) : (
-            ''
-          )}
-        </div>
-      )}
-      <Button size={'small-88'} onClick={createProductHandler}>
+        <TextEditor value={values.description} setValue={setFieldValue} />
+        <SuperSelect options={status} className={styles.select} onChangeOption={setFieldValue} />
+        <button
+          className={styles.load_image}
+          onClick={openDropOnClick}
+          disabled={loadFile.length !== 0}
+        >
+          <span>Загрузить изображение</span>
+        </button>
+        {isDrop ? (
+          <DragDropLoader
+            loadFile={loadFile}
+            setLoadFile={setLoadFile}
+            isDrop={isDrop}
+            setIsDrop={setIsDrop}
+          />
+        ) : (
+          ''
+        )}
+        {loadFile.length !== 0 && (
+          <div className={styles.images_container}>
+            {loadFile.map((file: any, index: number) => (
+              <div className={styles.image_block} key={hash(file)}>
+                <img className={styles.image} src={URL.createObjectURL(file)} alt="" />
+                <button className={styles.delete_button} onClick={() => deleteImage(file.name)}>
+                  Удалить
+                </button>
+              </div>
+            ))}
+            {loadFile.length !== 3 ? (
+              <DragDropLoader
+                loadFile={loadFile}
+                setLoadFile={setLoadFile}
+                isDrop={isDrop}
+                setIsDrop={setIsDrop}
+              />
+            ) : (
+              ''
+            )}
+          </div>
+        )}
+      </div>
+      <Button className={styles.button} fluid onClick={createProductHandler}>
         Сохранить
       </Button>
-      <Button onClick={redirectToMainPagePageHandler}>Отмена</Button>
+      <Button className={styles.button} fluid onClick={redirectToMainPagePageHandler}>
+        Отмена
+      </Button>
     </div>
   );
 };

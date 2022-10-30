@@ -4,12 +4,16 @@
   align-items: center;
 
   .input {
-    width: 610px;
+    width: 609px;
+    height: 30px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: none;
   }
 
   .select {
     width: 130px;
-    margin-top: 15px;
+    margin: 15px 0;
   }
 
   .uploader {
@@ -49,12 +53,10 @@
     }
   }
 
-  .price_block {
-    margin: 30px 0;
-
-    .price_content {
-      margin-top: 20px;
-    }
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
   }
 
   .cities_block {
@@ -67,6 +69,10 @@
     .city_block {
       display: flex;
     }
+  }
+
+  .button {
+    margin-top: 10px;
   }
 
 }

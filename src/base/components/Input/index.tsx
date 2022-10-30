@@ -37,6 +37,7 @@ export const Input = ({
   onChange,
   onFocus,
   onBlur,
+  fluid,
   type = 'text',
 }: InputProps) => {
   const handleChange = useCallback(
@@ -57,14 +58,17 @@ export const Input = ({
       {label && (
         <label
           htmlFor={name}
-          className={cx(styles.input__label, { [styles['input__label--required']]: required })}
+          className={cx(styles.input__label, {
+            [styles['input__label--required']]: required,
+            [styles['input--fluid']]: fluid,
+          })}
         >
           {label}
         </label>
       )}
       <input
         value={value}
-        className={className}
+        className={styles.input}
         id={name}
         type={type}
         onChange={handleChange}
