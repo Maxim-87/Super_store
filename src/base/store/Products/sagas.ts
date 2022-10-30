@@ -38,7 +38,6 @@ export function* createProductSaga({ payload }: any) {
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 export function* deleteProductSaga({ id }: any) {
   try {
-    console.log('payload saga = ', id);
     yield call(productsAPI.deleteProduct, id);
     yield put(deleteProductSuccessAction(id));
   } catch (e: any) {

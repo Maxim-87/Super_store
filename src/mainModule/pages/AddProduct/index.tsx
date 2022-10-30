@@ -129,17 +129,14 @@ export const AddProduct = ({}: AddProductProps) => {
   return (
     <div className={styles.product}>
       <h2>Добавить товар</h2>
-      <div>
-        <Input
-          className={styles.input}
-          name="name"
-          value={values.name}
-          label={'name'}
-          placeholder={'name'}
-          onChange={onChangeHandler}
-          type="text"
-        />
-      </div>
+      <Input
+        className={styles.input}
+        name="name"
+        value={values.name}
+        placeholder={'name'}
+        onChange={onChangeHandler}
+        type="text"
+      />
       <TextEditor value={values.description} setValue={setFieldValue} />
       <SuperSelect options={status} className={styles.select} onChangeOption={setFieldValue} />
       <button

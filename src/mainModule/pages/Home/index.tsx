@@ -33,7 +33,7 @@ export const Home = () => {
 
   return (
     <div className={styles.home}>
-      {isLoading ? (
+      {!isLoading ? (
         <LoaderSpinner />
       ) : (
         <>
