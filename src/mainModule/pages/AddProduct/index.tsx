@@ -14,6 +14,7 @@ import errorMessages from 'base/constants/errorMessages';
 import { Input } from 'base/components/Input';
 import { useDispatch } from 'react-redux';
 import { createProductAction } from 'base/store/Products/actions';
+import { Button } from 'base/components/Button';
 
 const cities = [
   { id: 1, name: 'Алматы' },
@@ -178,42 +179,10 @@ export const AddProduct = ({}: AddProductProps) => {
           )}
         </div>
       )}
-      <div className={styles.price_block}>
-        Цена
-        <div className={styles.price_content}>
-          <input
-            type="checkbox"
-            checked={price}
-            onChange={(e: ChangeEvent<HTMLInputElement>) => setPrice(e.currentTarget.checked)}
-          />
-          <span> Одна цена для всех городов </span>
-          <Input
-            type="number"
-            name="price"
-            value={values.price}
-            onChange={onChangeHandler}
-            placeholder="Цена"
-          />
-        </div>
-      </div>
-      <div className={styles.cities_block}>
-        <div className={styles.title}>
-          <h3> Город </h3>
-          <h3> Цена </h3>
-        </div>
-        <div>
-          {!price
-            ? cities.map((city: any) => (
-                <div className={styles.city_block} key={hash(city)}>
-                  <span>{city.name}</span>
-                  <input type="number" placeholder="Цена" />
-                </div>
-              ))
-            : ''}
-        </div>
-      </div>
-      <button onClick={createProductHandler}>Сохранить</button>
-      <button onClick={redirectToMainPagePageHandler}>Отмена</button>
+      <Button size={'small-88'} onClick={createProductHandler}>
+        Сохранить
+      </Button>
+      <Button onClick={redirectToMainPagePageHandler}>Отмена</Button>
     </div>
   );
 };
