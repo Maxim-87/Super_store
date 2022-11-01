@@ -29,8 +29,7 @@ export const productsReducer = (
         ...state,
         products: {
           ...state.products,
-          // data: payload,
-          data: [...state.products.data, ...payload],
+          data: payload,
         },
       };
     }

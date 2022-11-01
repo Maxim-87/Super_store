@@ -48,20 +48,22 @@ export const Product = ({ product }: ProductProps) => {
           <Text>{product.status ? product.status : 'status'}</Text>
           <Text>{product.price}</Text>
           {isAdmin ? (
-            <>
+            <div className={styles.button_block}>
               <Button
-                className={styles.delete_button}
+                className={styles.product_button}
+                size="small-88"
                 onClick={() => deleteProductHandler(product._id)}
               >
                 delete
               </Button>
               <Button
-                className={styles.edit_button}
+                className={styles.product_button}
+                size="small-88"
                 onClick={() => redirectToEditProductPageHandler(product._id)}
               >
                 edit
               </Button>
-            </>
+            </div>
           ) : (
             <Button
               className={styles.edit_button}

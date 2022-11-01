@@ -9,6 +9,7 @@ import styles from './Home.module.scss';
 import { Button } from 'base/components/Button';
 import LoaderSpinner from 'base/components/LoaderSpinner';
 import { Product } from 'base/components/Product';
+import { Text } from 'base/components/Text';
 import mainModuleRoutes from 'base/constants/routes/mainModuleRoutes';
 import { getProductsAction } from 'base/store/Products/actions';
 
@@ -20,10 +21,9 @@ export const Home = () => {
   const history = useNavigate();
 
   useEffect(() => {
-    if (products.data) {
-      return;
+    if (!products.data) {
+      dispatch(getProductsAction());
     }
-    dispatch(getProductsAction());
   }, [products.data, dispatch]);
 
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
@@ -33,12 +33,14 @@ export const Home = () => {
 
   return (
     <div className={styles.home}>
-      {!isLoading ? (
+      {isLoading ? (
         <LoaderSpinner />
       ) : (
         <>
-          <h2>Товары</h2>
-          <Button onClick={redirectToAddProductPageHandler}> Добавить товар </Button>
+          <Text type="normal-700-24-29">Товары</Text>
+          <Button size="middle-164" onClick={redirectToAddProductPageHandler}>
+            Добавить товар
+          </Button>
           <div className={styles.products_items}>
             {products?.products?.data?.map((product: any) => (
               <Product product={product} key={hash(product)} />

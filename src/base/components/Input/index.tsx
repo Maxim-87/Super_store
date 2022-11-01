@@ -60,7 +60,6 @@ export const Input = ({
           htmlFor={name}
           className={cx(styles.input__label, {
             [styles['input__label--required']]: required,
-            [styles['input--fluid']]: fluid,
           })}
         >
           {label}
@@ -68,7 +67,7 @@ export const Input = ({
       )}
       <input
         value={value}
-        className={styles.input}
+        className={cx(styles.input, { [styles['input--fluid']]: fluid })}
         id={name}
         type={type}
         onChange={handleChange}
