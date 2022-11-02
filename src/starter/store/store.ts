@@ -3,14 +3,18 @@ import createSagaMiddleware from 'redux-saga';
 
 import rootSaga from './rootSaga';
 
+import { modalReducer } from 'base/store/Modal';
 import { productReducer } from 'base/store/Product/reducer';
 import { productsReducer } from 'base/store/Products/reducer';
+import { registrationReducer } from 'base/store/Registration/reducer';
 import { searchReducer } from 'base/store/Search/reducer';
 
 const rootReducer = combineReducers({
+  registration: registrationReducer,
   products: productsReducer,
   product: productReducer,
   search: searchReducer,
+  modal: modalReducer,
 });
 
 const sagaMiddleware = createSagaMiddleware();
