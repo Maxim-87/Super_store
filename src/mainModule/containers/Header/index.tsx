@@ -1,12 +1,16 @@
 import React from 'react';
 
 import { useFormik } from 'formik';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { object, string } from 'yup';
 
 import styles from './Header.module.scss';
 
+import { Button } from 'base/components/Button';
 import { InputSearch } from 'base/components/InputSearch';
+import { RegistrationModal } from 'base/modals/registrationModal/RegistrationModal';
+import { modalOpenAction } from 'base/store/Modal/actions';
 
 type HeaderProps = {};
 
@@ -24,6 +28,7 @@ const validationSchema = object().shape({
 
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type,no-empty-pattern
 export const Header = ({}: HeaderProps) => {
+  const dispatch = useDispatch();
   const history = useNavigate();
 
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
@@ -50,6 +55,11 @@ export const Header = ({}: HeaderProps) => {
     [handleChange]
   );
 
+  // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+  const openRegisterModalWindowHandler = () => {
+    dispatch(modalOpenAction(<RegistrationModal />));
+  };
+
   return (
     <div className={styles.header}>
       <img className={styles.burger_image} src="" alt="" />
@@ -64,6 +74,7 @@ export const Header = ({}: HeaderProps) => {
           fluid
         />
       </div>
+      <Button onClick={openRegisterModalWindowHandler}>Login</Button>
     </div>
   );
 };
