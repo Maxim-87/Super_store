@@ -1,5 +1,5 @@
 /* eslint-disable */
-import React, { ChangeEvent, useState } from 'react';
+import React, { useState } from 'react';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import styles from './AddProduct.module.scss';
 import { TextEditor } from 'base/components/TextEditor';
@@ -49,9 +49,6 @@ export const AddProduct = ({}: AddProductProps) => {
   const dispatch = useDispatch();
 
   const [status, setStatus] = useState(['Активный', 'Архивный']);
-
-  const [error, setError] = useState<boolean>(false);
-  const [sendAvatar, setSendAvatar] = useState<boolean>(false);
   const [loadFile, setLoadFile] = useState<any>([]);
   const [isDrop, setIsDrop] = useState<boolean>(false);
 
@@ -121,9 +118,6 @@ export const AddProduct = ({}: AddProductProps) => {
   // const deleteImage = (index: any) => {
   //   // let newFiles = loadFile;
   //   // loadFile.splice(index, 1);
-  //
-  //   console.log('name',index)
-  //   console.log('files', loadFile)
   //   setLoadFile(loadFile.splice(index,1))
   // }
 
