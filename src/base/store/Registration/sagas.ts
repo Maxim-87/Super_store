@@ -7,14 +7,15 @@ import { registerErrorAction, registerSuccessAction } from 'base/store/Registrat
 import { RegisterActionType } from 'base/store/Registration/types';
 import { PostAuthRegisterResp } from 'base/types/provider/auth';
 
+// -------------------------------- registration
+
 function* registerSaga({ payload }: RegisterActionType) {
   try {
-    // const { email, password }: PostAuthRegisterReq = payload;
+    const resp: PostAuthRegisterResp = yield call(productsAPI.registration, payload);
 
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    // @ts-ignore
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const resp: PostAuthRegisterResp = yield call(productsAPI.login, payload);
+    if (!resp.success || resp.error) {
+      throw new Error('email or password is invalid');
+    }
 
     yield put(registerSuccessAction());
   } catch (err: any) {
