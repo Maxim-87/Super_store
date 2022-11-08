@@ -57,6 +57,7 @@ export const Header = ({}: HeaderProps) => {
 
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
   const openRegisterModalWindowHandler = () => {
+    console.log('open register Modal');
     dispatch(modalOpenAction(<RegistrationModal />));
   };
 
@@ -71,10 +72,13 @@ export const Header = ({}: HeaderProps) => {
           required
           onChange={onChangeHandler}
           onClick={searchHandler}
-          fluid
         />
       </div>
-      <Button onClick={openRegisterModalWindowHandler}>Login</Button>
+      <div className={styles.login_block}>
+        <Button size="small-88" onClick={openRegisterModalWindowHandler}>
+          Login
+        </Button>
+      </div>
     </div>
   );
 };

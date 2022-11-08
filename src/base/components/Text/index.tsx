@@ -1,4 +1,3 @@
-/* eslint-disable */
 import * as React from 'react';
 
 import cx from 'classnames';
@@ -65,6 +64,7 @@ export const Text: React.FC<TextProps> = ({
   color,
   onClick,
 }: TextProps) => (
+  // eslint-disable-next-line jsx-a11y/no-static-element-interactions,jsx-a11y/click-events-have-key-events
   <span
     onClick={onClick}
     className={cx(

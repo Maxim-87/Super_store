@@ -1,0 +1,16 @@
+@import "colors";
+
+@mixin text-colors {
+  &--white {
+    color: $primary-light;
+  }
+  &--primary-default {
+    color: $primary-blue;
+  }
+  &--grey {
+    color: $grey-text;
+  }
+}
+
+
+

@@ -1,7 +1,7 @@
 @import '../../assets/styles/colors';
+@import '../../assets/styles/mixins';
 
 .text {
-  //@extend %default-text-style;
 
   &--type {
     &--normal-400-12-15 {
@@ -254,7 +254,7 @@
 
   // colors
   &--color {
-    //@include text-colors;
+    @include text-colors;
     &--grey {
       color: $grey-text;
     }

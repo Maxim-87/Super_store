@@ -5,7 +5,27 @@ const instance = axios.create({
   withCredentials: true,
 });
 
+instance.interceptors.request.use((config) => {
+  // @ts-ignore
+  // eslint-disable-next-line no-param-reassign
+  config.headers.Authorization = `Bearer ${localStorage.getItem('token')}`; // get token from localStorage
+
+  return config;
+});
+
 export const productsAPI = {
+  registration(payload: any) {
+    console.log('registration = ', payload);
+
+    return instance.post<any>(`registration`, payload);
+  },
+
+  login(payload: any) {
+    console.log('login = ', payload);
+
+    return instance.post<any>(`login`, payload);
+  },
+
   getProduct(id: number) {
     console.log('productsAPI Id = ', id);
 
@@ -15,21 +35,11 @@ export const productsAPI = {
   createProduct(payload: any) {
     console.log('createProductAPI = ', payload);
 
-    return instance.post(
-      `products`,
-
-      // name: payload.name,
-      // description: payload.description,
-      // price: payload.price,
-      // status: payload.status,
-      // image: payload.image,
-      payload,
-      {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-      }
-    );
+    return instance.post(`products`, payload, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    });
   },
 
   deleteProduct(id: number) {

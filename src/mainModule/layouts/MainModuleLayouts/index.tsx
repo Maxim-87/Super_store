@@ -4,6 +4,7 @@ import React from 'react';
 import styles from './MainModuleLayout.module.scss';
 
 import { Header } from 'mainModule/containers/Header';
+import { ModalWindow } from 'base/containers/ModalWindow';
 
 interface OwnProps {
   children: JSX.Element | JSX.Element[];
@@ -21,6 +22,7 @@ export const MainModuleLayout = ({ children }: MainModuleLayoutProps) => {
       <div className={styles.menu_and_content}>
         <div className={styles.content}>{children}</div>
       </div>
+      <ModalWindow />
     </div>
   );
 };

@@ -1,4 +1,3 @@
-/* eslint-disable */
 import * as registrationTypes from 'base/store/Registration/constants';
 
 export const registerAction = (payload: any) => ({

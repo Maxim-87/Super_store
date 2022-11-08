@@ -1,4 +1,3 @@
-/* eslint-disable */
 import React from 'react';
 
 import * as modalTypes from 'base/store/Modal/constants';
@@ -17,6 +16,7 @@ const initialState: ModalState = {
 };
 
 export const modalReducer = (
+  // eslint-disable-next-line default-param-last
   state: ModalState = initialState,
   action: ModalActionsType
 ): ModalState => {
