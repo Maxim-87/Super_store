@@ -21,7 +21,7 @@ export const productsAPI = {
   },
 
   login(payload: any) {
-    console.log('login = ', payload);
+    console.log('loginModal = ', payload);
 
     return instance.post<any>(`login`, payload);
   },

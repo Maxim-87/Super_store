@@ -1,5 +1,7 @@
 import * as authTypes from 'base/store/Auth/constants';
 
+// --------------------------------------- loginModal
+
 export const loginAction = (payload: any) => ({
   type: authTypes.BASE_LOGIN_REQUEST,
   payload,

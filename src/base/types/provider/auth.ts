@@ -1,3 +1,4 @@
+/* eslint-disable */
 // -----------------------------------------------Register
 
 import { CommonResponse, ErrorResponse } from 'base/types/provider/response';
