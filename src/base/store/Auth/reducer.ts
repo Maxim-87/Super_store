@@ -4,13 +4,13 @@ import { AuthActionsType } from 'base/store/Auth/types';
 import { RequestInfoType } from 'base/types/base/reducer';
 import { RequestInfoState } from 'base/types/base/state';
 
-export type LoginState = {
+export type AuthState = {
   auth: {
     login: boolean;
   } & RequestInfoType;
 };
 
-const initialState: LoginState = {
+const initialState: AuthState = {
   auth: {
     login: false,
     ...RequestInfoState,
@@ -19,9 +19,9 @@ const initialState: LoginState = {
 
 export const authReducer = (
   // eslint-disable-next-line default-param-last
-  state: LoginState = initialState,
+  state: AuthState = initialState,
   action: AuthActionsType
-): LoginState => {
+): AuthState => {
   switch (action.type) {
     case authTypes.BASE_LOGIN_REQUEST: {
       return {
@@ -35,6 +35,8 @@ export const authReducer = (
 
     case authTypes.BASE_LOGIN_SUCCESS: {
       // const { payload } = action;
+      console.log('authTypes.BASE_LOGIN_SUCCESS');
+
       return {
         ...state,
         auth: {
@@ -47,6 +49,8 @@ export const authReducer = (
 
     case authTypes.BASE_LOGIN_ERROR: {
       const { payload } = action;
+
+      console.log(' case authTypes.BASE_LOGIN_ERROR');
 
       return {
         ...state,
