@@ -17,13 +17,13 @@ export const productsAPI = {
   registration(payload: any) {
     console.log('registration = ', payload);
 
-    return instance.post<any>(`registration`, payload);
+    return instance.post<any>(`auth/registration`, payload);
   },
 
   login(payload: any) {
     console.log('loginModal = ', payload);
 
-    return instance.post<any>(`login`, payload);
+    return instance.post<any>(`auth/login`, payload);
   },
 
   getProduct(id: number) {
