@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 
 import { useFormik } from 'formik';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { object, string } from 'yup';
 
 import styles from './RegistrationModal.module.scss';
@@ -12,8 +12,10 @@ import { ButtonText } from 'base/components/ButtonText';
 import { InputValidation } from 'base/components/InputValidation';
 import LoaderSpinner from 'base/components/LoaderSpinner';
 import { Text } from 'base/components/Text';
-import { modalCloseAction } from 'base/store/Modal/actions';
+import { LoginModal } from 'base/modals/loginModal';
+import { modalCloseAction, modalOpenAction } from 'base/store/Modal/actions';
 import { registerAction } from 'base/store/Registration/actions';
+import { BaseState } from 'base/types/store';
 
 // eslint-disable-next-line no-unused-vars
 type RegistrationModalProps = {};
@@ -41,12 +43,14 @@ const validationSchema = object().shape({
 // eslint-disable-next-line no-empty-pattern
 export const RegistrationModal = ({}: RegistrationModalProps) => {
   const dispatch = useDispatch();
-  const register = useState<boolean>(true);
+  const {
+    registration: { register },
+  }: any = useSelector<BaseState>((state: BaseState) => state);
 
-  // useEffect(() => {
-  //   if (!register.isRegister) return;
-  //   dispatch(modalOpenAction(<VerificationEmailModal />));
-  // }, [register.isRegister]);
+  useEffect(() => {
+    if (!register.isRegister) return;
+    dispatch(modalOpenAction(<LoginModal />));
+  }, [register.isRegister]);
 
   const { handleChange, handleBlur, handleSubmit, touched, setTouched, values, setErrors } =
     useFormik<RegistrationModalFieldsType>({
@@ -76,6 +80,12 @@ export const RegistrationModal = ({}: RegistrationModalProps) => {
     dispatch(modalCloseAction());
   };
 
+  // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+  const openLoginModalWindowHandler = () => {
+    console.log('open register Modal');
+    dispatch(modalOpenAction(<LoginModal />));
+  };
+
   // eslint-disable-next-line no-unused-vars
   // const emailError = useMemo(() => {
   //   if (register.isLoading) return '';
@@ -94,31 +104,13 @@ export const RegistrationModal = ({}: RegistrationModalProps) => {
 
   return (
     <div className={styles.registration}>
-      {!register && <LoaderSpinner />}
+      {register.isLoading && <LoaderSpinner />}
       <div className={styles.close_block}>
         <ButtonClose className={styles.image} onClick={modalWindowClose} />
       </div>
       <div className={styles.content}>
         <Text type="normal-500-24-29">Создайте аккаунт</Text>
         <div className={styles.form}>
-          {/* <InputValidation */}
-          {/*  className={styles.input} */}
-          {/*  label="Имя" */}
-          {/*  name="firstName" */}
-          {/*  placeholder="Ваше имя" */}
-          {/*  required */}
-          {/*  value={values.firstName} */}
-          {/*  onChange={onChangeHandler} */}
-          {/*  onBlur={(event) => { */}
-          {/*    handleBlur(event); */}
-          {/*    setTouched({ */}
-          {/*      ...touched, */}
-          {/*      email: false, */}
-          {/*    }); */}
-          {/*  }} */}
-          {/*  onFocus={handleBlur} */}
-          {/*  // disabled={register.isLoading} */}
-          {/* /> */}
           <InputValidation
             className={styles.input}
             label="Электронная почта"
@@ -152,7 +144,7 @@ export const RegistrationModal = ({}: RegistrationModalProps) => {
           <Button
             className={styles.button}
             onClick={() => handleSubmit()}
-            // disabled={register.isLoading}
+            disabled={register.isLoading}
           >
             Создать аккаунт
           </Button>
@@ -162,7 +154,7 @@ export const RegistrationModal = ({}: RegistrationModalProps) => {
           <ButtonText
             className={styles.link}
             text="Войдите"
-            onClick={() => {}}
+            onClick={openLoginModalWindowHandler}
             // disabled={register.isLoading}
             textType="normal-500-16-19"
             textColor="primary-default"

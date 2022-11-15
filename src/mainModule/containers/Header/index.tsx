@@ -9,7 +9,7 @@ import styles from './Header.module.scss';
 
 import { Button } from 'base/components/Button';
 import { InputSearch } from 'base/components/InputSearch';
-import { RegistrationModal } from 'base/modals/registrationModal/RegistrationModal';
+import { LoginModal } from 'base/modals/loginModal';
 import { modalOpenAction } from 'base/store/Modal/actions';
 
 type HeaderProps = {};
@@ -56,9 +56,9 @@ export const Header = ({}: HeaderProps) => {
   );
 
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-  const openRegisterModalWindowHandler = () => {
+  const openLoginModalWindowHandler = () => {
     console.log('open register Modal');
-    dispatch(modalOpenAction(<RegistrationModal />));
+    dispatch(modalOpenAction(<LoginModal />));
   };
 
   return (
@@ -75,7 +75,7 @@ export const Header = ({}: HeaderProps) => {
         />
       </div>
       <div className={styles.login_block}>
-        <Button size="small-88" onClick={openRegisterModalWindowHandler}>
+        <Button size="small-88" onClick={openLoginModalWindowHandler}>
           Login
         </Button>
       </div>

@@ -10,10 +10,10 @@ export type PostAuthRegisterReq = {
 
 export type PostAuthRegisterParams = {} & PostAuthRegisterReq;
 
-export type PostAuthRegisterData = {};
+export type PostAuthRegisterData = {
+  accessToken: string;
+};
 
 export type PostAuthRegisterResp =
-  | ({
-      data: PostAuthRegisterData;
-    } & CommonResponse)
+  | ({ data: PostAuthRegisterData } & CommonResponse)
   | ErrorResponse;
