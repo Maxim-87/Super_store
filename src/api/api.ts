@@ -17,26 +17,26 @@ instance.interceptors.request.use((config) => {
 
 export const productsAPI = {
   registration(payload: any) {
-    console.log('registration = ', payload);
-
     return instance.post<any>(`auth/registration`, payload);
   },
 
   login(payload: PostAuthRegisterReq) {
-    console.log('loginModal = ', payload);
-
     return instance.post<any>(`auth/login`, payload);
   },
 
-  getProduct(id: number) {
-    console.log('productsAPI Id = ', id);
+  logout() {
+    return instance.post<any>(`auth/logout`);
+  },
 
+  checkAuth() {
+    return instance.post<any>(`auth/refresh`);
+  },
+
+  getProduct(id: number) {
     return instance.get<any>(`products/${id}`);
   },
 
   createProduct(payload: any) {
-    console.log('createProductAPI = ', payload);
-
     return instance.post(`products`, payload, {
       headers: {
         'Content-Type': 'multipart/form-data',
