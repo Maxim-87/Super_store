@@ -18,6 +18,11 @@ function* loginSaga(payload: any) {
     }
 
     yield put(loginSuccessAction());
+    // @ts-ignore
+    if (resp.data.accessToken) {
+      // @ts-ignore
+      localStorage.setItem('token', resp.data.accessToken);
+    }
   } catch (err: any) {
     yield put(loginErrorAction({ error: err.message }));
   }
