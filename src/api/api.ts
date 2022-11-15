@@ -1,5 +1,7 @@
 import axios from 'axios';
 
+import { PostAuthRegisterReq } from 'base/types/provider/auth';
+
 const instance = axios.create({
   baseURL: 'http://localhost:4000/api/',
   withCredentials: true,
@@ -20,7 +22,7 @@ export const productsAPI = {
     return instance.post<any>(`auth/registration`, payload);
   },
 
-  login(payload: any) {
+  login(payload: PostAuthRegisterReq) {
     console.log('loginModal = ', payload);
 
     return instance.post<any>(`auth/login`, payload);
