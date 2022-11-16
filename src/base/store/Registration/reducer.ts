@@ -5,7 +5,7 @@ import { RequestInfoState } from 'base/types/base/state';
 
 export type RegistrationState = {
   register: {
-    isRegister?: boolean;
+    isRegister: boolean;
     email?: string;
   } & RequestInfoType;
 };
@@ -37,6 +37,8 @@ export const registrationReducer = (
     }
 
     case registrationTypes.BASE_REGISTER_SUCCESS: {
+      console.log('BASE_REGISTER_SUCCESS');
+
       return {
         ...state,
         register: {
