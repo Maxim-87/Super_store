@@ -11,7 +11,12 @@ body{
 
 
 .App {
-  /*text-align: center;*/
+  display: flex;
+  flex-direction: column;
+  min-block-size: 100vh;
+  max-inline-size: 100vw;
+  background: linear-gradient(to bottom, #117d2c, #7c68a1, #5d26c9);
+  height: 100%;
 }
 
 .App-logo {
