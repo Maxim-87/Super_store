@@ -29,7 +29,9 @@ export const productsAPI = {
   },
 
   checkAuth() {
-    return instance.post<any>(`auth/refresh`);
+    console.log('checkAuth api');
+
+    return instance.get<any>(`auth/refresh`);
   },
 
   getProduct(id: number) {
