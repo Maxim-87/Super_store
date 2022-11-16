@@ -52,6 +52,8 @@ export const RegistrationModal = ({}: RegistrationModalProps) => {
     dispatch(modalOpenAction(<LoginModal />));
   }, [register.isRegister]);
 
+  console.log('isRegister = ', register.isRegister);
+
   const { handleChange, handleBlur, handleSubmit, touched, setTouched, values, setErrors } =
     useFormik<RegistrationModalFieldsType>({
       initialValues,
@@ -59,6 +61,7 @@ export const RegistrationModal = ({}: RegistrationModalProps) => {
       onSubmit: (formData: RegistrationModalFieldsType) => {
         console.log('form data = ', formData);
         dispatch(registerAction(formData));
+        dispatch(modalOpenAction(<LoginModal />));
       },
       validationSchema,
       validateOnMount: true,
@@ -127,7 +130,7 @@ export const RegistrationModal = ({}: RegistrationModalProps) => {
               });
             }}
             onFocus={handleBlur}
-            // disabled={register.isLoading}
+            disabled={register.isLoading}
           />
           <InputValidation
             className={styles.input}
@@ -139,7 +142,7 @@ export const RegistrationModal = ({}: RegistrationModalProps) => {
             onChange={onChangeHandler}
             onBlur={handleBlur}
             type="password"
-            // disabled={register.isLoading}
+            disabled={register.isLoading}
           />
           <Button
             className={styles.button}
@@ -155,7 +158,7 @@ export const RegistrationModal = ({}: RegistrationModalProps) => {
             className={styles.link}
             text="Войдите"
             onClick={openLoginModalWindowHandler}
-            // disabled={register.isLoading}
+            disabled={register.isLoading}
             textType="normal-500-16-19"
             textColor="primary-default"
           />
