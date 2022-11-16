@@ -11,9 +11,11 @@ import { PostAuthRegisterResp } from 'base/types/provider/auth';
 
 function* registerSaga({ payload }: RegisterActionType) {
   try {
+    console.log('registerSaga before');
+
     const resp: PostAuthRegisterResp = yield call(productsAPI.registration, payload);
 
-    if (!resp.success || resp.error) {
+    if (!resp || resp.error) {
       throw new Error('email or password is invalid');
     }
 

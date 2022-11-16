@@ -16,9 +16,9 @@ export type LoginErrorActionType = ReturnType<typeof loginErrorAction>;
 
 // ------------------------------------- auth
 
-export type authActionType = ReturnType<typeof authAction>;
-export type authSuccessActionType = ReturnType<typeof authSuccessAction>;
-export type authErrorActionType = ReturnType<typeof authErrorAction>;
+export type AuthActionType = ReturnType<typeof authAction>;
+export type AuthSuccessActionType = ReturnType<typeof authSuccessAction>;
+export type AuthErrorActionType = ReturnType<typeof authErrorAction>;
 
 // ------------------------------------- logout
 
@@ -28,7 +28,7 @@ export type AuthActionsType =
   | LoginActionType
   | LoginSuccessActionType
   | LoginErrorActionType
-  | authActionType
-  | authSuccessActionType
-  | authErrorActionType
+  | AuthActionType
+  | AuthSuccessActionType
+  | AuthErrorActionType
   | LogoutActionType;
