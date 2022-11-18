@@ -7,12 +7,14 @@ import { RequestInfoState } from 'base/types/base/state';
 export type AuthState = {
   auth: {
     login: boolean;
+    isInitialized: boolean;
   } & RequestInfoType;
 };
 
 const initialState: AuthState = {
   auth: {
     login: false,
+    isInitialized: false,
     ...RequestInfoState,
   },
 };
@@ -23,6 +25,8 @@ export const authReducer = (
   action: AuthActionsType
 ): AuthState => {
   switch (action.type) {
+    // --------------------------------------LOGOUT
+
     case authTypes.BASE_LOGIN_REQUEST: {
       return {
         ...state,
@@ -62,11 +66,52 @@ export const authReducer = (
       };
     }
 
-    // // --------------------------------------LOGOUT
-    //
-    // 	case authPersistTypes.AUTH_PERSIST_LOGOUT: {
-    // 		return initialState;
-    // 	}
+    // --------------------------------------AUTH
+
+    case authTypes.BASE_AUTH_REQUEST: {
+      return {
+        ...state,
+        auth: {
+          ...state.auth,
+          isInitialized: true,
+          isLoading: true,
+        },
+      };
+    }
+
+    case authTypes.BASE_AUTH_SUCCESS: {
+      console.log('BASE_AUTH_SUCCESS');
+
+      return {
+        ...state,
+        auth: {
+          ...state.auth,
+          login: true,
+          isInitialized: false,
+          isLoading: false,
+        },
+      };
+    }
+
+    case authTypes.BASE_AUTH_ERROR: {
+      const { payload } = action;
+
+      return {
+        ...state,
+        auth: {
+          ...state.auth,
+          isInitialized: false,
+          error: payload.error,
+          isLoading: false,
+        },
+      };
+    }
+
+    // --------------------------------------LOGOUT
+
+    case authTypes.BASE_LOGOUT_REQUEST: {
+      return initialState;
+    }
 
     default: {
       return state;
