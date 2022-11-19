@@ -37,9 +37,13 @@ const validationSchema = object().shape({
 export const LoginModal = ({}: LoginModalProps) => {
   const dispatch = useDispatch();
 
-  const { auth } = useSelector((state: BaseState) => state.auth);
+  const {
+    auth: { auth },
+    registration: { register },
+  } = useSelector((state: BaseState) => state);
 
   console.log('LOGIN = ', auth.login);
+  console.log('isRegister = ', register.isRegister);
 
   useEffect(() => {
     if (auth.login) {
@@ -80,22 +84,6 @@ export const LoginModal = ({}: LoginModalProps) => {
     dispatch(modalOpenAction(<RegistrationModal />));
   };
 
-  // eslint-disable-next-line no-unused-vars
-  // const emailError = useMemo(() => {
-  //   if (register.isLoading) return '';
-  //   if (errors.email) return errors.email;
-  //   if (register.error) {
-  //     setTouched({
-  //       ...touched,
-  //       email: false,
-  //     });
-  //
-  //     return register.error;
-  //   }
-  //
-  //   return '';
-  // }, [register, errors]);
-
   return (
     <>
       {' '}
@@ -125,7 +113,7 @@ export const LoginModal = ({}: LoginModalProps) => {
                   });
                 }}
                 onFocus={handleBlur}
-                // disabled={register.isLoading}
+                disabled={auth.isLoading}
               />
               <InputValidation
                 className={styles.input}
@@ -137,12 +125,12 @@ export const LoginModal = ({}: LoginModalProps) => {
                 onChange={onChangeHandler}
                 onBlur={handleBlur}
                 type="password"
-                // disabled={auth.auth.isLoading}
+                disabled={auth.isLoading}
               />
               <Button
                 className={styles.button}
                 onClick={() => handleSubmit()}
-                // disabled={register.isLoading}
+                disabled={auth.isLoading}
               >
                 Войти в аккаунт
               </Button>
@@ -153,7 +141,7 @@ export const LoginModal = ({}: LoginModalProps) => {
                 className={styles.link}
                 text="Зарегистрироваться"
                 onClick={openLoginModalWindowHandler}
-                // disabled={register.isLoading}
+                disabled={auth.isLoading}
                 textType="normal-500-16-19"
                 textColor="primary-default"
               />

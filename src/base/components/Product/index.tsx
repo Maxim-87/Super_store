@@ -22,8 +22,6 @@ export const Product = ({ product }: ProductProps) => {
 
   const [isAdmin, setIsAdmin] = useState<boolean>(true);
 
-  console.log(product);
-
   const baseUrl = 'http://localhost:4000/';
 
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
@@ -38,15 +36,19 @@ export const Product = ({ product }: ProductProps) => {
 
   return (
     <div className={styles.product}>
-      <Text type={'normal-700-24-29'}>{product.name}</Text>
-      <div className={styles.product_item}>
+      <div className={styles.product_text}>
+        <Text type={'normal-700-24-29'}>{product.name}</Text>
+      </div>
+      <div className={styles.card}>
         <div className={styles.image_wrapper}>
           <img className={styles.image} src={`${baseUrl}${product.image}`} alt="" />
         </div>
-        <div className="item_content">
-          <Text>{product.description}</Text>
-          <Text>{product.status ? product.status : 'status'}</Text>
-          <Text>{product.price}</Text>
+        <div className={styles.product_item}>
+          <div className={styles.info_block}>
+            <Text>{product.description}</Text>
+            <Text>{product.status ? product.status : 'status'}</Text>
+            <Text>{product.price}</Text>
+          </div>
           {isAdmin ? (
             <div className={styles.button_block}>
               <Button

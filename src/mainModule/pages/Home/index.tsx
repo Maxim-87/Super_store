@@ -12,19 +12,24 @@ import { Product } from 'base/components/Product';
 import { Text } from 'base/components/Text';
 import mainModuleRoutes from 'base/constants/routes/mainModuleRoutes';
 import { getProductsAction } from 'base/store/Products/actions';
+import { BaseState } from 'base/types/store';
 
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 export const Home = () => {
   const dispatch = useDispatch();
-  const products: any = useSelector<any>((state) => state.products);
-  const isLoading: any = useSelector<any>((state) => state.products.products.isLoading);
+  // const products: any = useSelector<any>((state) => state.products);
+  const {
+    auth: { auth },
+    products: { products },
+  }: any = useSelector<BaseState>((state: BaseState) => state);
+  // const isLoading: any = useSelector<any>((state) => state.products.products.isLoading);
   const history = useNavigate();
 
   useEffect(() => {
-    if (!products.data) {
+    if (products.data.length === 0) {
       dispatch(getProductsAction());
     }
-  }, [products.data, dispatch]);
+  }, []);
 
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
   const redirectToAddProductPageHandler = () => {
@@ -33,16 +38,24 @@ export const Home = () => {
 
   return (
     <div className={styles.home}>
-      {isLoading ? (
+      {products.isLoading ? (
         <LoaderSpinner />
       ) : (
         <>
           <Text type="normal-700-24-29">Товары</Text>
-          <Button size="middle-164" onClick={redirectToAddProductPageHandler}>
-            Добавить товар
-          </Button>
+          {auth.login ? (
+            <Button
+              className={styles.button}
+              size="middle-164"
+              onClick={redirectToAddProductPageHandler}
+            >
+              Добавить товар
+            </Button>
+          ) : (
+            <> </>
+          )}
           <div className={styles.products_items}>
-            {products?.products?.data?.map((product: any) => (
+            {products?.data?.map((product: any) => (
               <Product product={product} key={hash(product)} />
             ))}
           </div>

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { useFormik } from 'formik';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { object, string } from 'yup';
 
@@ -10,7 +10,9 @@ import styles from './Header.module.scss';
 import { Button } from 'base/components/Button';
 import { InputSearch } from 'base/components/InputSearch';
 import { LoginModal } from 'base/modals/loginModal';
+import { logoutAction } from 'base/store/Auth/actions';
 import { modalOpenAction } from 'base/store/Modal/actions';
+import { BaseState } from 'base/types/store';
 
 type HeaderProps = {};
 
@@ -30,6 +32,11 @@ const validationSchema = object().shape({
 export const Header = ({}: HeaderProps) => {
   const dispatch = useDispatch();
   const history = useNavigate();
+  const {
+    auth: {
+      auth: { login },
+    },
+  } = useSelector((state: BaseState) => state);
 
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
   const searchHandler = () => {
@@ -61,6 +68,10 @@ export const Header = ({}: HeaderProps) => {
     dispatch(modalOpenAction(<LoginModal />));
   };
 
+  const logoutHandler = () => {
+    dispatch(logoutAction());
+  };
+
   return (
     <div className={styles.header}>
       <img className={styles.burger_image} src="" alt="" />
@@ -75,9 +86,15 @@ export const Header = ({}: HeaderProps) => {
         />
       </div>
       <div className={styles.login_block}>
-        <Button size="small-88" onClick={openLoginModalWindowHandler}>
-          Login
-        </Button>
+        {!login ? (
+          <Button size="small-88" onClick={openLoginModalWindowHandler}>
+            Login
+          </Button>
+        ) : (
+          <Button size="small-88" onClick={logoutHandler}>
+            Logout
+          </Button>
+        )}
       </div>
     </div>
   );
